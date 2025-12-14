@@ -29,9 +29,9 @@ We use a strict **Numbered Protocol**. Do not guess what to do next; follow the 
 *   **Prompt:** *"I am ready to commit. Run the pre-commit verification steps in `03_pre_commit_check.md`."*
 
 ### Step 4: Review It
-*   **File:** `04_pr_review_guide.md`
-*   **Action:** When reviewing a teammate's PR, use this guide.
-*   **Prompt:** *"Review this PR diff against the standards in `04_pr_review_guide.md`."*
+*   **File:** `04_code_review.md`
+*   **Action:** Use this guide to critique code *locally* or on a *PR*.
+*   **Prompt:** *"Act as the Reviewer. Critique this code against `04_code_review.md`. Look for Slop and Inefficiency."*
 
 ---
 
