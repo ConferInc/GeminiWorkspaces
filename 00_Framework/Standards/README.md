@@ -8,6 +8,8 @@ This folder contains the **Standard Operating Protocols (SOP)** for our engineer
 
 We use a strict **Numbered Protocol**. Do not guess what to do next; follow the numbers.
 
+**Only the following numbered files (00-04) are for your direct interaction.** Other files in this `00_Framework` directory (e.g., in `Templates/`) are used by the AI Agents for their internal operations and do not require your direct attention.
+
 ### Step 0: One-Time Setup
 *   **File:** `00_setup_project_context.md`
 *   **Action:** When you start a new project (or join one), fill this file out **once**.
