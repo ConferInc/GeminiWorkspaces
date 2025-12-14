@@ -39,6 +39,7 @@ project_context_ref: "./00_setup_project_context.md"
 ## 1. Task Overview
 
 **Title:** [Short, Action-Based Title]
+**Branch Name:** `{{developer_name}}/[type]-{{short-title}}` (e.g., `anjali/feat-auth-login`)
 **Goal:** [What does success look like? Why does this matter?]
 
 | Priority | Type |
