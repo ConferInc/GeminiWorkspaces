@@ -1,0 +1,27 @@
+# System Files
+.DS_Store
+Thumbs.db
+
+# Security
+Confidential/
+.env
+.env.*
+!.env.example
+secrets/
+
+# Build Artifacts
+node_modules/
+dist/
+build/
+.next/
+__pycache__/
+.venv/
+target/
+
+# User Workspaces
+# Ignore everyone's personal workspace by default
+User_Workspaces/*
+# Except Yatin's (Project Lead)
+!User_Workspaces/Yatin/
+# And allow anyone to commit if they explicitly force add, or add their name here.
+.gemini/

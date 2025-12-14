@@ -1,41 +1,43 @@
-# Gemini Workspaces: A Self-Contained, Auditable System for AI Collaboration
+# Confer Solutions AI: Workspace Hub
 
-This repository contains a structured workspace designed for safe, efficient, and transparent collaboration with Gemini and other AI assistants. It establishes a clear, rule-based system for managing projects, tasks, and context, making it ideal for both solo developers and teams.
+**Welcome to the Team.**
 
-## Key Features
+This repository is the central hub for our engineering work. It is structured to separate "How we work" (Standards) from "What we work on" (Projects).
 
-*   **Control Tower (`Gemini.md`):** A central file that defines all operating rules, project structures, and protocols for the AI to follow.
-*   **Project-Based Structure:** Each top-level folder is treated as an independent project, with its own context and tasks.
-*   **Template-Driven Actions:** The `_templates` directory contains guides and templates for standardized actions like `CREATE TASK`, `UPDATE TASK`, and `STORE CONTEXT`, ensuring consistency.
-*   **Explicit Confirmation Protocols:** All actions that modify files require explicit confirmation, with previews of the changes, to prevent errors.
-*   **Auditable History:** The system is designed to be fully auditable, with clear changelogs, session histories, and update records for each task.
-*   **Error Recovery and Validation:** Includes protocols for error recovery (backups) and workspace validation to maintain integrity.
+## 📂 Repository Structure
 
-## How It Works
+### 1. `00_Framework/` (THE LAW)
+**This is the most important folder.** It contains the Standards and Protocols you must follow.
+*   **`Standards/`**: The "Numbered Protocols" (00-04) for defining tasks, writing code, and reviewing PRs.
+*   **`Templates/`**: Reusable files for various needs.
 
-1.  **Start at the Root:** The AI always starts by reading `Gemini.md` to understand the rules of the workspace.
-2.  **Navigate to a Project:** The user specifies a project to work on (e.g., `MoXi`).
-3.  **Execute Actions:** The user issues commands (e.g., "CREATE TASK 1.1"), which the AI executes by following the corresponding guide in the `_templates` directory.
-4.  **Store Context:** The AI stores its reasoning and session history in the relevant task file, providing a clear audit trail.
+### 2. `Projects/` (THE WORK)
+Shared team projects live here.
+*   **`Confer/`**: Internal tools and frameworks.
+*   **`MoXi/`**: Client work for MoXi.
+*   **`Odyssey/`**: Odyssey project.
 
-## Directory Structure
+### 3. `User_Workspaces/` (THE PLAYGROUND)
+Your personal area.
+*   **`Yatin/`**: Yatin's workspace.
+*   **`[YourName]/`**: Create a folder here for your experiments and rough drafts.
 
-```
-/
-├── Gemini.md               # The main control tower file
-├── MoXi/                   # Example Project 1
-│   ├── MoXi.md             # Main context for Project MoXi
-│   └── tasks/              # Folder for task-specific files
-├── Odyssey/                # Example Project 2
-├── Personal/               # Example Project 3
-├── Temp/                   # Temporary workspace
-└── _templates/             # Contains all action guides and file templates
-    ├── actions_index.md    # Maps commands to guide files
-    ├── create_task.md      # Guide for creating tasks
-    ├── update_task.md      # Guide for updating tasks
-    ├── complete_task.md    # Guide for completing tasks
-    ├── store_context.md    # Guide for storing session history
-    └── task_base.md        # Base template for a new task
-```
+---
 
-This system is designed to be self-documenting and easy for new collaborators (human or AI) to understand and use safely.
+## 🚀 Getting Started (For Junior Engineers)
+
+**Step 1: Context**
+Read `00_Framework/Standards/README.md`. This explains our "Numbered Protocol" workflow.
+
+**Step 2: Setup**
+When you start a new task in a Project, make sure you have filled out `00_setup_project_context.md` for that project.
+
+**Step 3: Execution**
+Always use the Standards.
+*   Need to plan a task? Use **Protocol 01**.
+*   Need to write code? Use **Protocol 02**.
+*   Need to push code? Use **Protocol 03**.
+
+---
+
+> **Rule of Thumb:** If you are unsure where to put a file or how to do something, look in `00_Framework`. If it's not there, ask the team.
