@@ -9,7 +9,11 @@
 *   **Primary Language(s):** [e.g., TypeScript, Python]
 *   **Package Manager:** [e.g., pnpm, pip, npm]
 
-## 2. Repository Architecture
+## 2. Developer Identity (YOU)
+*   **Name:** [Choose one: yatin, anjali, kanan, divyani, harshit, vanshika]
+*   **Git User Configured?** [Yes/No - Run `git config user.name` to check]
+
+## 3. Repository Architecture
 *   **Type:** [Monorepo / Single Repo / Multi-Repo]
 *   **Repo URL(s):**
     *   Primary: `[URL]`

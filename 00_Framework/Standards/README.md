@@ -8,6 +8,8 @@ This folder contains the **Standard Operating Protocols (SOP)** for our engineer
 
 We use a strict **Numbered Protocol**. Do not guess what to do next; follow the numbers.
 
+**Only the following numbered files (00-04) are for your direct interaction.** Other files in this `00_Framework` directory (e.g., in `Templates/`) are used by the AI Agents for their internal operations and do not require your direct attention.
+
 ### Step 0: One-Time Setup
 *   **File:** `00_setup_project_context.md`
 *   **Action:** When you start a new project (or join one), fill this file out **once**.
@@ -23,15 +25,15 @@ We use a strict **Numbered Protocol**. Do not guess what to do next; follow the 
 *   **Action:** Use this guide to execute the task you defined in Step 1.
 *   **Prompt:** *"Implement the code for [Task Name] following the rules in `02_task_implementation.md`."*
 
-### Step 3: Check It
-*   **File:** `03_pre_commit_check.md`
-*   **Action:** Before you push your code, run this check.
-*   **Prompt:** *"I am ready to commit. Run the pre-commit verification steps in `03_pre_commit_check.md`."*
+### Step 3: Review It (The Gatekeeper)
+*   **File:** `03_code_review.md`
+*   **Action:** Use this guide to critique code *locally* before you even think about pushing.
+*   **Prompt:** *"Act as the Reviewer. Critique this code against `03_code_review.md`. Look for Slop and Inefficiency."*
 
-### Step 4: Review It
-*   **File:** `04_pr_review_guide.md`
-*   **Action:** When reviewing a teammate's PR, use this guide.
-*   **Prompt:** *"Review this PR diff against the standards in `04_pr_review_guide.md`."*
+### Step 4: Ship It
+*   **File:** `04_ship_code.md`
+*   **Action:** If Step 3 approved your work, use this to commit and push.
+*   **Prompt:** *"I am ready to commit. Run the verification steps in `04_ship_code.md`."*
 
 ---
 

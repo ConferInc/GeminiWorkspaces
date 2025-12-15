@@ -39,6 +39,7 @@ project_context_ref: "./00_setup_project_context.md"
 ## 1. Task Overview
 
 **Title:** [Short, Action-Based Title]
+**Branch Name:** `{{developer_name}}/[type]-{{short-title}}` (e.g., `anjali/feat-auth-login`)
 **Goal:** [What does success look like? Why does this matter?]
 
 | Priority | Type |
@@ -134,3 +135,11 @@ project_context_ref: "./00_setup_project_context.md"
 2.  **Strict Typing:** No `any`. No "trust me" assertions.
 3.  **Scoped Commits:** One commit per logical change.
 4.  **Update Status:** Keep this file updated as you progress (`status: in_progress`).
+
+---
+
+## Next Steps for the AI Agent:
+
+1.  Ensure this `01_task_definition.md` file is fully populated and saved.
+2.  **Your Job is Done Here.** Now, provide this file to the **Builder Agent** (or the user instructing the Builder Agent) with the instruction:
+    *"**Execute Protocol 02** using this plan. Focus on quality and efficiency."*
