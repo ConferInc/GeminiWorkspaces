@@ -1,4 +1,4 @@
-# Protocol 03: Pre-Commit Check
+# Protocol 04: Ship Code (Pre-Commit & Push)
 
 **Purpose:** The final gatekeeper. This protocol ensures that nothing leaves the local environment without passing verification, documentation checks, and proper commit formatting.
 
@@ -169,10 +169,15 @@ git push origin <your-branch-name>
 ## 5. Post-Commit
 
 1.  **Verify Push:** Ensure `git status` is clean and changes appear on the remote.
-2.  **Update Task:** Mark your task as `done` or `in-progress` in the project's **Task Tracker**.
-3.  **Deployment:** If `setup_project_context.md` requires manual sync or deployment steps, perform them now.
+2.  **Housekeeping:** Mark your `01_task_definition.md` file's `status` to `done` and move the completed task file to a `completed/` directory (or similar project-defined archive) within the project's task management.
 
 ---
+
+## AI Agent Instructions (The Closed Loop Final Step)
+
+*   Upon successful push, mark the associated `01_task_definition.md` file as `status: done`.
+*   Move the `01_task_definition.md` file to a designated `completed_tasks/` or `archive/` folder within the project.
+*   Your job is now fully complete for this task.
 
 ## AI Agent Instructions
 

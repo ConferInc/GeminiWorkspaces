@@ -63,11 +63,12 @@
 
 ## Phase 4: Self-Correction (The "Agent Review")
 
-**Before you tell the user you are "Done", review your own code against this checklist:**
+**STOP.** Do not tell the user you are "Done." Do not ask the user to commit. Your task is not complete until a separate **Reviewer Agent** (using Protocol 03) has approved your work.
 
-*   [ ] **Did I follow the plan?** Compare result vs `01_task_definition.md`.
-*   [ ] **Did I add "Code Slop"?** (Unnecessary files, over-engineering, comments).
-*   [ ] **Did I break anything?** (Check existing tests).
-*   [ ] **Is it clean?** (Formatting, naming conventions).
+**Your instruction to the user (or the Reviewer Agent) is:**
+*"I have completed the implementation of the task defined in `01_task_definition.md`. I am now ready for a review. Please use the **Reviewer Agent** (Protocol 03) to critique this code against the plan and quality standards."*
 
-> **Final Rule:** If you are unsure about a pattern, **ASK**. It is better to wait for clarification than to generate 500 lines of garbage code.
+---
+**The Loop:**
+*   If the Reviewer Agent (Protocol 03) finds issues: Return to Protocol 02 and fix them.
+*   If the Reviewer Agent (Protocol 03) approves: You are clear to proceed to **Protocol 04 (Ship Code)**.

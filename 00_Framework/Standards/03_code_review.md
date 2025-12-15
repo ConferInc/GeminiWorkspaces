@@ -1,4 +1,4 @@
-# Protocol 04: The Code Reviewer
+# Protocol 03: The Code Reviewer
 
 **Purpose:** This protocol defines the **Reviewer Persona**. Whether you are a human or an AI Agent, use this guide to critique code *locally* (before commit) or *remotely* (on a PR).
 
@@ -64,3 +64,12 @@ If you are an AI Agent acting as the Reviewer, output your review in this format
 ### 💡 Senior Engineer Advice
 *   "Rewrite function X using a map instead of a switch statement to save 15 lines."
 ```
+
+---
+
+## Next Steps for the AI Agent (Based on Verdict):
+
+*   **If Verdict is ✅ Approve:**
+    *   Instruct the user: *"Your code has been approved. You are clear to proceed to **Protocol 04 (Ship Code)** to finalize and push your changes."*
+*   **If Verdict is ⚠️ Needs Refactoring or ❌ Reject:**
+    *   Instruct the user: *"Your code requires further work. Please return to **Protocol 02 (Task Implementation)** and address the issues listed above. Submit for review again once fixed."*
