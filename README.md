@@ -8,8 +8,8 @@ This repository is the central hub for our engineering work. It is structured to
 
 ### 1. `00_Framework/` (THE LAW)
 **This is the most important folder.** It contains the Standards and Protocols you must follow.
-*   **`Standards/`**: The "Numbered Protocols" (00-04) for defining tasks, writing code, and reviewing PRs.
-*   **`Templates/`**: Reusable files for various needs.
+*   **`Standards/`**: The "Numbered Protocols" (00-04) for defining tasks, writing code, and reviewing PRs. **These are the only files you need to directly interact with for daily workflow.**
+*   **`Templates/`**: Reusable files for various needs, primarily used by the AI Agents. You do not need to interact with these directly.
 
 ### 2. `Projects/` (THE WORK)
 Shared team projects live here.
