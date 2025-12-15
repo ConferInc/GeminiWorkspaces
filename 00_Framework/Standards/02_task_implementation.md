@@ -44,7 +44,10 @@
 **Step 3: Verification (Based on Artifact Type)**
 *   **If Code Module:** Run `pnpm lint` and `pnpm type-check`.
 *   **If Container:** Run `docker build .` to verify it builds.
-*   **If BPMN:** Verify XML structure is valid.
+*   **If BPMN:**
+    *   **XML Check:** Verify it is valid XML.
+    *   **Logic Check:** Verify the flow is logical (Start -> End). No dead ends. No disconnected nodes.
+    *   **Camunda Check:** Ensure all Service Tasks have a `zeebe:taskDefinition` type.
 
 ---
 

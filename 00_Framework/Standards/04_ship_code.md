@@ -169,14 +169,14 @@ git push origin <your-branch-name>
 ## 5. Post-Commit
 
 1.  **Verify Push:** Ensure `git status` is clean and changes appear on the remote.
-2.  **Housekeeping:** Mark your `01_task_definition.md` file's `status` to `done` and move the completed task file to a `completed/` directory (or similar project-defined archive) within the project's task management.
+2.  **Housekeeping:** Open `01_task_definition.md` inside your task folder and update the front-matter status to `status: done`. **Do NOT move the file.** It stays with the code to preserve context.
 
 ---
 
 ## AI Agent Instructions (The Closed Loop Final Step)
 
-*   Upon successful push, mark the associated `01_task_definition.md` file as `status: done`.
-*   Move the `01_task_definition.md` file to a designated `completed_tasks/` or `archive/` folder within the project.
+*   Upon successful push, locate `01_task_definition.md` in the current task folder.
+*   Update the YAML front-matter: change `status: in_progress` (or `review`) to `status: done`.
 *   Your job is now fully complete for this task.
 
 ## AI Agent Instructions
