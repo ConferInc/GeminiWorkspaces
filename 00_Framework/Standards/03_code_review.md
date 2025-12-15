@@ -10,23 +10,42 @@
 
 ---
 
-## 1. The Efficiency Audit (Crucial)
+## 1. The Efficiency Audit (Crucial - Adapts to Artifact Type)
 
-**Rule:** The best code is no code. The next best is the least amount of lines possible to solve the problem.
+**Rule:** The best solution is the simplest one.
 
-*   [ ] **Least Lines of Code:** Could this 50-line function be 10 lines without losing readability?
-*   [ ] **Premature Optimization:** Are we building a generic "Engine" when we just needed a "Wheel"?
-*   [ ] **Dependency Check:** Did we import a heavy library just to do something simple (like formatting a date)?
-*   [ ] **Logic Simplification:** Are there nested `if/else` blocks that could be flattened with early returns?
+*   **If Code Module (A) or Container (B):**
+    *   [ ] **Least Lines of Code:** Could this 50-line function be 10 lines without losing readability?
+    *   [ ] **Premature Optimization:** Are we building a generic "Engine" when we just needed a "Wheel"?
+    *   [ ] **Dependency Check:** Did we import a heavy library just to do something simple (like formatting a date)?
+    *   [ ] **Logic Simplification:** Are there nested `if/else` blocks that could be flattened with early returns?
+*   **If Business Process (C):**
+    *   [ ] **Process Complexity:** Is the BPMN flow overly complex? Can it be simplified?
+    *   [ ] **Redundant Steps:** Are there unnecessary tasks or gateways?
+    *   [ ] **Clear Paths:** Are all decisions clearly represented and paths unambiguous?
+*   **If Documentation/Analysis (D):**
+    *   [ ] **Concision:** Is the information presented succinctly without jargon?
+    *   [ ] **Relevance:** Is all information directly relevant to the purpose?
+    *   [ ] **Structure:** Is it well-organized and easy to navigate?
 
-## 2. "Code Slop" Detection
+## 2. "Slop" Detection (Adapts to Artifact Type)
 
-**Rule:** AI Agents often generate "Slop"—code that looks correct but is bloated or hallucinatory.
+**Rule:** AI Agents often generate "Slop"—content that looks correct but is bloated or hallucinatory.
 
-*   [ ] **Verbose Comments:** Flag comments that explain *what* the code is doing (e.g., `// Increment i by 1`). Only *why* matters.
-*   [ ] **Dead Code:** Are there unused imports, variables, or "helper functions" that aren't actually used?
-*   [ ] **Hallucinated APIs:** Verify that called functions actually exist in the imported libraries.
-*   [ ] **Defensive Bloat:** Are we checking for `null` in 5 different places when the Type System already guarantees it's defined?
+*   **If Code Module (A) or Container (B):**
+    *   [ ] **Verbose Comments:** Flag comments that explain *what* the code is doing. Only *why* matters.
+    *   [ ] **Dead Code:** Are there unused imports, variables, or "helper functions" that aren't actually used?
+    *   [ ] **Hallucinated APIs:** Verify that called functions actually exist in the imported libraries.
+    *   [ ] **Defensive Bloat:** Are we checking for `null` in 5 different places when the Type System already guarantees it's defined?
+*   **If Business Process (C):**
+    *   [ ] **Generic Labels:** Are task/event names too generic (e.g., "Do Something")?
+    *   [ ] **Undefined Behavior:** Are there tasks that lack clear implementers or outputs?
+    *   [ ] **Unused Elements:** Are there BPMN elements that serve no purpose?
+*   **If Documentation/Analysis (D):**
+    *   [ ] **Fluff/Jargon:** Is there unnecessary filler or overly technical jargon where plain language would suffice?
+    *   [ ] **Inaccuracies:** Are facts or references incorrect or outdated?
+    *   [ ] **Bias:** Is the language neutral and objective?
+
 
 ## 3. Architecture & Context Match
 

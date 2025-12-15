@@ -41,13 +41,21 @@
 **Step 2: Logic Implementation**
 *   Write the core logic. Keep functions small (< 50 lines).
 
-**Step 3: Verification (Based on Artifact Type)**
-*   **If Code Module:** Run `pnpm lint` and `pnpm type-check`.
-*   **If Container:** Run `docker build .` to verify it builds.
-*   **If BPMN:**
+**Step 3: Verification (Based on Artifact Type from Protocol 01)**
+*   **If Code Module (A):**
+    *   Run `pnpm lint` and `pnpm type-check`.
+    *   Run `pnpm test` (if applicable).
+*   **If Standalone Container (B):**
+    *   Verify `Dockerfile` exists and is valid.
+    *   Run `docker build .` to verify it builds.
+*   **If Business Process (C):**
     *   **XML Check:** Verify it is valid XML.
-    *   **Logic Check:** Verify the flow is logical (Start -> End). No dead ends. No disconnected nodes.
+    *   **Logic Check:** Verify the flow is logical (Start -> End). No dead ends. No disconnected nodes. All decision points are clear.
     *   **Camunda Check:** Ensure all Service Tasks have a `zeebe:taskDefinition` type.
+*   **If Documentation/Analysis (D):**
+    *   **Clarity:** Is the document clear and easy to understand?
+    *   **Completeness:** Does it address all points in the task definition?
+    *   **Grammar/Spelling:** Basic correctness.
 
 ---
 
