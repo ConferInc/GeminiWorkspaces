@@ -1,6 +1,6 @@
 # Protocol 02: Task Implementation (The "Anti-Slop" Protocol)
 
-**Purpose:** This guide defines **HOW** to write code. It is not just about getting it done; it is about getting it done *right*. It prevents "Code Slop"—verbose, buggy, unmaintainable, or hallucinated code.
+**Purpose:** This guide defines **HOW** to write code. It is not just about getting it done; it is about getting it done *right*.
 
 > **Input:** You must have a completed `01_task_definition.md` (The Spec) and `00_setup_project_context.md` (The Config).
 
@@ -10,15 +10,13 @@
 
 **Agent: Do not generate a single line of code until you answer these questions internaly:**
 
-1.  **Is this the simplest way?**
+1.  **Where am I?**
+    *   *Check:* Am I in the dedicated Task Folder (`User_Workspaces/...`)?
+2.  **What is the Artifact?**
+    *   *Check:* Is this a Code Module, Container, or BPMN File? (See Protocol 01 Section 3).
+3.  **Is this the simplest way?**
     *   *Slop:* Creating a `UserFactoryManager` to create a user.
     *   *Quality:* Just writing a `createUser` function.
-2.  **Am I duplicating logic?**
-    *   *Slop:* Re-implementing a date formatter because you didn't check `src/utils`.
-    *   *Quality:* Check existing utils/components first.
-3.  **Do I understand the Project Structure?**
-    *   *Slop:* Putting API routes in `components/`.
-    *   *Quality:* Checking `Protocol 00` for the correct directories.
 
 ---
 
@@ -27,20 +25,11 @@
 ### 1. Code Hygiene (No "Slop")
 *   **No Unused Imports:** Remove them immediately.
 *   **No `console.log`:** Debugging leftovers must be deleted.
-*   **No Verbose Comments:**
-    *   *Bad:* `// This function adds two numbers` -> `const add = (a, b) => a + b`
-    *   *Good:* `// Using Kahan summation to avoid floating point errors`
-*   **No Magic Numbers:** Use named constants.
+*   **No Verbose Comments:** Only explain *why*.
 
 ### 2. Type Safety (Strict)
-*   **No `any`:** Ever. If you are stuck, ask the user or define a `unknown` with a Zod schema.
+*   **No `any`:** Ever.
 *   **No `as Type` assertions:** Unless absolutely necessary and documented why.
-*   **Return Types:** Explicitly type the return values of public functions/APIs.
-
-### 3. Error Handling (Robust)
-*   **No Silent Failures:** `catch (e) { console.log(e) }` is forbidden.
-*   **Fail Fast:** Validate inputs at the start of the function.
-*   **User Visibility:** If an error impacts the user, ensure it propagates to the UI (e.g., toast, alert).
 
 ---
 
@@ -48,16 +37,14 @@
 
 **Step 1: Scaffolding**
 *   Create the files defined in `01_task_definition.md` (File Map).
-*   *Verification:* Does the file structure match the plan?
 
 **Step 2: Logic Implementation**
-*   Write the core logic.
-*   *Constraint:* Keep functions small (< 50 lines). If it grows, split it.
+*   Write the core logic. Keep functions small (< 50 lines).
 
-**Step 3: Verification (The "Does it actually work?" Check)**
-*   **Run the Linter:** Execute the command from Protocol 00 (e.g., `pnpm lint`). Fix ALL warnings.
-*   **Run Types:** Execute the command from Protocol 00 (e.g., `pnpm type-check`).
-*   **Test:** Write the test *before* or *during* implementation, not after.
+**Step 3: Verification (Based on Artifact Type)**
+*   **If Code Module:** Run `pnpm lint` and `pnpm type-check`.
+*   **If Container:** Run `docker build .` to verify it builds.
+*   **If BPMN:** Verify XML structure is valid.
 
 ---
 

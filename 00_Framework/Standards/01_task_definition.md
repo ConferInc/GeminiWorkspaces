@@ -8,7 +8,7 @@ priority: "high"       # critical | high | normal | low
 type: "feature"        # feature | enhancement | bugfix | research | refactor
 labels: ["general"]
 version: "1.0.0"
-project_context_ref: "./00_setup_project_context.md"
+project_context_ref: "../../../00_Framework/Standards/00_setup_project_context.md" # Relative path check
 ---
 
 # Protocol 01: Task Definition
@@ -18,19 +18,17 @@ project_context_ref: "./00_setup_project_context.md"
 > **Instructions for Agents:**
 > 1. Read `00_setup_project_context.md` (The Golden Path).
 > 2. Fill out every section.
-> 3. **Constraint:** You MUST use the Golden Path stack (Next.js, Temporal, Camunda, Drizzle).
+> 3. **Verify Location:** Ensure you are working in a dedicated Task Folder (e.g., `User_Workspaces/Name/Task-X/`).
 
 ---
 
 ## 0. Grounding (MUST READ FIRST)
 
-**Source of Truth:** Refer to `00_setup_project_context.md` for the stack.
+**Source of Truth:** Refer to `00_setup_project_context.md`.
 
-**Alignment Checklist:**
-- [ ] Task uses **pnpm**.
-- [ ] Task uses **TypeScript** (Strict).
-- [ ] Task uses **Drizzle ORM** (if DB involved).
-- [ ] Task uses **Temporal/Camunda** (if Workflow involved).
+**Workspace Verification:**
+*   [ ] I am working in a dedicated folder: `User_Workspaces/{{developer}}/Task-{{id}}/`
+*   [ ] I will NOT modify files outside this folder without explicit permission.
 
 ---
 
@@ -55,17 +53,18 @@ project_context_ref: "./00_setup_project_context.md"
 
 ---
 
-## 3. Golden Path Compliance (Architecture)
+## 3. Universal Artifact Definition (What are we building?)
 
-**How does this task fit into the Confer Stack?**
+**Select the Primary Deliverable Type:**
 
-*   **Logic:**
-    *   [ ] Simple UI Interaction (Use React State)
-    *   [ ] Data Mutation (Use Server Actions + Drizzle)
-    *   [ ] Long-Running Process (Use Temporal Workflow)
-    *   [ ] Business Logic Flow (Use Camunda BPMN)
-
-*   **Breaking Changes?** [Yes/No]
+*   [ ] **A. Code Module (Integrated):** Features merged into the main codebase (e.g., Next.js Page, Server Action).
+    *   *Validation:* Lint, Build, Test.
+*   [ ] **B. Standalone Container (Isolated):** Independent Agent or Service.
+    *   *Validation:* `Dockerfile` exists, `docker build` succeeds.
+*   [ ] **C. Business Process (File-Based):** BPMN, DMN, or Config files.
+    *   *Validation:* Valid XML/JSON, Importable into Camunda/Temporal.
+*   [ ] **D. Documentation/Analysis:** Markdown reports, Architecture Diagrams.
+    *   *Validation:* Peer Review, Clarity check.
 
 ---
 
@@ -76,9 +75,8 @@ project_context_ref: "./00_setup_project_context.md"
 **Success Criteria (Definition of Done):**
 - [ ] [Functional Requirement 1]
 - [ ] [Functional Requirement 2]
-- [ ] Code compiles and passes all linters.
-- [ ] Tests written and passing.
-- [ ] Documentation updated.
+- [ ] Artifact passes its specific validation (Docker build, Lint, etc.).
+- [ ] No "Slop" (Clean, minimal implementation).
 
 ---
 
@@ -92,42 +90,28 @@ project_context_ref: "./00_setup_project_context.md"
 
 ---
 
-## 6. Data & API Changes
-
-**Schema Updates (SQL/ORM):**
-```sql
--- Example changes
-```
-
-**API Contracts / Server Actions:**
-*   `POST /api/resource`: Inputs/Outputs
-*   `updateResource` (Action): Inputs/Outputs
-
----
-
-## 7. Plan & Phases
+## 6. Plan & Phases
 
 | Phase | Description | Est. Time |
 |-------|-------------|-----------|
-| 1 | Setup & Schema Changes | |
-| 2 | Core Logic & API | |
-| 3 | UI & Integration | |
-| 4 | Testing & Refinement | |
+| 1 | Setup & Definition | |
+| 2 | Implementation | |
+| 3 | Validation | |
 
 ---
 
-## 8. File Map (The Blueprint)
+## 7. File Map (The Blueprint)
 
-**Exact files to create/modify:**
-*(Agent: Be specific. Use the correct project structure.)*
+**Exact files to create/modify INSIDE this Task Folder:**
+*(Agent: Be specific.)*
 
-*   `[New/Mod]` `src/app/actions/...`: [Server Actions]
-*   `[New/Mod]` `src/workflows/...`: [Temporal Workflows]
-*   `[New/Mod]` `src/components/...`: [UI Components]
+*   `[New]` `./Dockerfile` (if Track B)
+*   `[New]` `./process.bpmn` (if Track C)
+*   `[New]` `./src/agent.ts`
 
 ---
 
-## 9. AI Agent Guardrails
+## 8. AI Agent Guardrails
 
 **When implementing this task (using Protocol 02):**
 1.  **No Slop:** Do not generate unused code.

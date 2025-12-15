@@ -29,6 +29,9 @@ Follow this exact sequence for **every single task**. Do not skip steps.
 *   **Action:** When you join a project, fill this out **once**.
 *   **Why:** It teaches the Agents who you are and what tech stack we use.
 
+> **💡 PRO TIP: Isolate Your Work**
+> When starting a new task, **create a new folder** inside your workspace (e.g., `User_Workspaces/Anjali/Task-101-Login/`). Copy the `01_task_definition.md` file into that folder and do all your work there. This keeps your experiments clean.
+
 ---
 
 ### 1️⃣ Step 1: The Plan (Agent A)
