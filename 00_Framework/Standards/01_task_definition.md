@@ -13,26 +13,24 @@ project_context_ref: "./00_setup_project_context.md"
 
 # Protocol 01: Task Definition
 
-**Purpose:** This is the **Master Plan**. Do not write code until this document is filled out and approved. It forces you to think about Architecture, Dependencies, and Quality *before* implementation.
+**Purpose:** This is the **Master Plan**. Do not write code until this document is filled out and approved.
 
 > **Instructions for Agents:**
-> 1. Read `00_setup_project_context.md` to understand the tech stack.
-> 2. Fill out every section of this template based on the user's request.
-> 3. If you lack information, ask the user. **Do not hallucinate requirements.**
+> 1. Read `00_setup_project_context.md` (The Golden Path).
+> 2. Fill out every section.
+> 3. **Constraint:** You MUST use the Golden Path stack (Next.js, Temporal, Camunda, Drizzle).
 
 ---
 
 ## 0. Grounding (MUST READ FIRST)
 
-**Source of Truth:** Refer to `00_setup_project_context.md` for:
-*   Approved Tech Stack (Frameworks, Libraries)
-*   Architecture Patterns (Repo structure, API patterns)
-*   Verification Commands (Lint, Test, Build)
+**Source of Truth:** Refer to `00_setup_project_context.md` for the stack.
 
 **Alignment Checklist:**
-- [ ] Task uses *only* approved tech from Protocol 00.
-- [ ] Task does not duplicate existing functionality.
-- [ ] Task aligns with the project's architectural patterns.
+- [ ] Task uses **pnpm**.
+- [ ] Task uses **TypeScript** (Strict).
+- [ ] Task uses **Drizzle ORM** (if DB involved).
+- [ ] Task uses **Temporal/Camunda** (if Workflow involved).
 
 ---
 
@@ -48,26 +46,26 @@ project_context_ref: "./00_setup_project_context.md"
 
 ---
 
-## 2. Context Capsule & Constants
+## 2. Context Capsule
 
-*(Extract these from `00_setup_project_context.md`)*
+*(Extract these from Protocol 00)*
 - **Project:** [Name]
-- **Language:** [e.g., TypeScript]
-- **Frameworks:** [e.g., Next.js, FastAPI]
-- **Database:** [e.g., Postgres + Drizzle]
-- **Auth:** [e.g., Clerk]
+- **Developer:** [Your Name]
+- **Stack:** Next.js 14+, Temporal, Camunda 8.5, Drizzle.
 
 ---
 
-## 3. Architectural Decisions (CRITICAL)
+## 3. Golden Path Compliance (Architecture)
 
-**Stop & Think:** How will we solve this?
-*(Agent: Define the approach here. Do not default to "standard" code if it doesn't fit the project.)*
+**How does this task fit into the Confer Stack?**
 
-*   **Pattern Selection:** [e.g., "Using Server Actions for mutations," "Using React Context for state"]
-*   **Trade-offs:** [e.g., "Optimizing for read speed, so denormalizing data X"]
-*   **New Dependencies?** [List any new libs. **Must be approved.**]
-*   **Breaking Changes?** [Yes/No. If Yes, describe mitigation.]
+*   **Logic:**
+    *   [ ] Simple UI Interaction (Use React State)
+    *   [ ] Data Mutation (Use Server Actions + Drizzle)
+    *   [ ] Long-Running Process (Use Temporal Workflow)
+    *   [ ] Business Logic Flow (Use Camunda BPMN)
+
+*   **Breaking Changes?** [Yes/No]
 
 ---
 
@@ -121,20 +119,21 @@ project_context_ref: "./00_setup_project_context.md"
 ## 8. File Map (The Blueprint)
 
 **Exact files to create/modify:**
-*(Agent: Be specific. Don't say "Update utils". Say `src/utils/format.ts`)*
+*(Agent: Be specific. Use the correct project structure.)*
 
-*   `[New/Mod]` `src/path/to/file.ts`: [Description of change]
-*   `[New/Mod]` `src/path/to/test.ts`: [Description of test]
+*   `[New/Mod]` `src/app/actions/...`: [Server Actions]
+*   `[New/Mod]` `src/workflows/...`: [Temporal Workflows]
+*   `[New/Mod]` `src/components/...`: [UI Components]
 
 ---
 
 ## 9. AI Agent Guardrails
 
 **When implementing this task (using Protocol 02):**
-1.  **No Slop:** Do not generate unused code, comments explaining "what" instead of "why", or verbose implementations.
-2.  **Strict Typing:** No `any`. No "trust me" assertions.
+1.  **No Slop:** Do not generate unused code.
+2.  **Strict Typing:** No `any`.
 3.  **Scoped Commits:** One commit per logical change.
-4.  **Update Status:** Keep this file updated as you progress (`status: in_progress`).
+4.  **Update Status:** Keep this file updated (`status: in_progress`).
 
 ---
 

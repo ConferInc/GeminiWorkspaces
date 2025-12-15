@@ -1,61 +1,67 @@
 # Protocol 00: Project Context Setup
 
-**Purpose:** This document defines the specific operational context for a project. It must be filled out *once* when adopting the `ConferSolutionsAI` standards. All Agents (Gemini, Claude, Cursor) refer to this file to understand the specific rules of engagement (Tech Stack, Commands, Paths) for the repository.
+**Purpose:** This document defines the specific operational context for a project. It must be filled out *once* when adopting the `ConferSolutionsAI` standards.
+
+**The Golden Rule:** We follow the **Confer Golden Path**. Do not deviate from these standards without a Principal Engineer's written approval.
 
 ---
 
 ## 1. Project Identity
 *   **Project Name:** [e.g., MoXi Loan Originator]
-*   **Primary Language(s):** [e.g., TypeScript, Python]
-*   **Package Manager:** [e.g., pnpm, pip, npm]
+*   **Repository Type:** [Monorepo / Single Repo]
+*   **Package Manager:** **pnpm** (Strictly required)
 
 ## 2. Developer Identity (YOU)
 *   **Name:** [Choose one: yatin, anjali, kanan, divyani, harshit, vanshika]
 *   **Git User Configured?** [Yes/No - Run `git config user.name` to check]
 
-## 3. Repository Architecture
-*   **Type:** [Monorepo / Single Repo / Multi-Repo]
-*   **Repo URL(s):**
-    *   Primary: `[URL]`
-    *   Secondary (if any): `[URL]`
-*   **Branching Strategy:**
-    *   Main/Production Branch: `[e.g., main]`
-    *   Development Branch: `[e.g., develop]`
-    *   Feature Branch Prefix: `[e.g., feature/, fix/]`
+---
 
-## 3. Documentation "Source of Truth"
-Identify the specific file paths for these critical documents.
+## 3. The Confer "Golden Path" Stack (Read-Only)
 
-| Concept | File Path |
-|---------|-----------|
-| **System Overview / PRD** | `[e.g., docs/system_overview.md]` |
-| **Task Tracker** | `[e.g., tasks/detailed_task_list.md]` |
-| **Architecture Guide** | `[e.g., ARCHITECTURE.md]` |
-| **API/Schema Docs** | `[e.g., docs/api/]` |
+**All projects must use this stack unless explicitly exempt.**
 
-## 4. Verification Commands
-What specific commands must pass before code is committed?
+### Frontend
+*   **Framework:** Next.js 14+ (App Router)
+*   **Library:** React 18+
+*   **Styling:** Tailwind CSS + Shadcn UI
+*   **State:** React Context (Local) / Zustand (Global - if needed)
 
-| Check | Command |
-|-------|---------|
-| **Type Check** | `[e.g., pnpm type-check]` |
-| **Lint** | `[e.g., pnpm lint]` |
-| **Test** | `[e.g., pnpm test]` |
-| **Build** | `[e.g., pnpm build]` |
+### Backend & Logic
+*   **Language:** TypeScript (Strict Mode)
+*   **API Pattern:** Server Actions (for mutations) / Route Handlers (for external APIs)
+*   **Workflow Engine:** **Temporal.io** (For durable execution/long-running processes)
+*   **Process Orchestration:** **Camunda 8.5** (BPMN for business logic flow)
 
-## 5. Dangerous Zones (Do Not Delete/Modify)
-List files or folders that require explicit human approval to modify or delete.
-
-*   `[e.g., .env.example]`
-*   `[e.g., docs/architecture/]`
-*   `[e.g., legacy/]`
-
-## 6. Deployment / Sync (Optional)
-If this project requires syncing to another repo or specific deployment steps (like Vercel).
-
-*   **Sync Required?** [Yes/No]
-*   **Instructions:** [Link to deployment doc or brief steps]
+### Data Layer
+*   **Database:** PostgreSQL
+*   **ORM:** Drizzle ORM
+*   **Auth:** Supabase Auth / Clerk (Check project-specific implementation)
 
 ---
-*Status: [Draft / Active]*
+
+## 4. Project-Specific Configuration (Fill This Out)
+
+**Documentation Source of Truth:**
+| Concept | File Path |
+|---------|-----------|
+| **System Overview / PRD** | `[e.g., docs/architecture/system_overview.md]` |
+| **Task Tracker** | `[e.g., tasks/detailed_task_list.md]` |
+| **DB Schema** | `[e.g., docs/database/current_schema_architecture.md]` |
+
+**Verification Commands:**
+| Check | Command |
+|-------|---------|
+| **Lint** | `pnpm lint` |
+| **Type Check** | `pnpm type-check` |
+| **Test** | `pnpm test` |
+| **Build** | `pnpm build` |
+
+**Dangerous Zones (Do Not Delete):**
+*   `docs/`
+*   `.env.example`
+*   `[e.g., legacy/]`
+
+---
+*Status: [Active]*
 *Last Updated: [Date]*
